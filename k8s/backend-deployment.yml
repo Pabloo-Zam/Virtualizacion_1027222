@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: 1027222_pablozamora-backend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MONGO_USER
+              value: admin
+            - name: MONGO_PASSWORD
+              value: admin123
+            - name: MONGO_HOST
+              value: mongo
+            - name: MONGO_DATABASE
+              value: proyecto_db
