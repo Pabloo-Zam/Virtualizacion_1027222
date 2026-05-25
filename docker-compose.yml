@@ -3,7 +3,7 @@ services:
     build: ./frontend
     container_name: proyecto_frontend
     ports:
-      - "${FRONTEND_PORT}:5520"
+      - "3000:3000"
     depends_on:
       - backend
     networks:
@@ -13,7 +13,7 @@ services:
     build: ./backend
     container_name: proyecto_backend
     ports:
-      - "${BACKEND_PORT}:5000"
+      - "5520:5000"
     environment:
       MONGO_USER: ${MONGO_INITDB_ROOT_USERNAME}
       MONGO_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
@@ -44,3 +44,6 @@ volumes:
 networks:
   proyecto_network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.46.0/24

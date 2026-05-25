@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: 1027222_pablozamora-frontend:latest
+          image: 1027222_pablozamora-frontend:2.0
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 5520
+            - containerPort: 3000
