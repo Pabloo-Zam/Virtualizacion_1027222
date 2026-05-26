@@ -14,7 +14,17 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: 1027222_pablozamora-frontend:2.0
+          image: us-central1-docker.pkg.dev/silver-theme-497018-p5/repo-virtualizacion/frontend:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
+          resources:
+            limits:
+              cpu: "250m"
+              memory: "512Mi"
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+          env:
+            - name: REACT_APP_BACKEND_URL
+              value: "http://104.198.248.224"

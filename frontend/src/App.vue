@@ -140,7 +140,7 @@
 </template>
 
 <script>
-const API_URL = "http://localhost:5520";
+const API_URL = 'http://104.198.248.224';
 
 export default {
   data() {
